@@ -26,8 +26,34 @@ html {
 
 /* Header Styles */
 header {
+    position: relative;
     background: var(--dark);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 87%, 0 100%);
+}
+
+.header-image-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.header-image-button img {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.header-image-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+    color: var(--pure);
 }
 
 .container {
@@ -85,14 +111,20 @@ header nav .branding {
 /* Hero Section Styles */
 .hero {
     padding: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .hero .left img {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
 }
 
 .hero .right {
     color: var(--pure);
+    max-width: 60%;
+    margin-left: 2rem;
 }
 
 .hero .right h6 {
@@ -117,17 +149,18 @@ header nav .branding {
     margin-bottom: 2rem;
 }
 
-.hero .right {
-    margin-top: -7rem;
-}
-
 /* About Section Styles */
 section.about {
     padding: 6rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 section.about .about-me-img {
-    height: 450px;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
 }
 
 section.about h1 {
@@ -202,13 +235,13 @@ section.about .social a img {
 /* Services Section Styles */
 section.services {
     background: var(--light);
+    padding: 6rem 0;
 }
 
 section.services .card-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 2rem;
-    grid-row-gap: 6rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 2rem;
 }
 
 section.services .card-wrapper .card {
@@ -226,6 +259,8 @@ section.services .card-wrapper .card img {
     top: -3.5rem;
     left: 50%;
     transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
 }
 
 section.services .card-wrapper .card h2 {
@@ -256,7 +291,7 @@ section.freelancer {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/camera.png);
     color: var(--pure);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 67% 80%, 0 100%);
-    padding-bottom: 14rem;
+    padding: 6rem 0;
 }
 
 section.freelancer h1 {
@@ -269,6 +304,7 @@ section.freelancer p {
     margin-bottom: 2rem;
     font-family: 'Lato', sans-serif;
 }
+
 /* Reviews Section Styles */
 section.reviews .slider .slide img {
     width: 100px;
@@ -326,11 +362,12 @@ section.reviews .dots li.slick-active button {
 /* Work Section Styles */
 section.work {
     background: var(--light);
+    padding: 6rem 0;
 }
 
 section.work .card-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 2rem;
 }
 
@@ -373,7 +410,7 @@ section.work .card-wrapper .card img {
 section.blog {
     background: var(--dark);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 67% 90%, 0 100%);
-    padding-bottom: 12rem;
+    padding: 6rem 0;
 }
 
 section.blog .section-heading {
@@ -382,7 +419,7 @@ section.blog .section-heading {
 
 section.blog .card-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 3rem;
 }
 
@@ -435,7 +472,7 @@ section.blog .card-wrapper .card .card-content a.read-more {
 /* Contact Section Styles */
 section.contact .card-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 3rem;
 }
 
@@ -445,6 +482,9 @@ section.contact .card-wrapper .card {
 
 section.contact .card-wrapper .card img {
     margin-bottom: 3rem;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
 }
 
 section.contact .card-wrapper .card h1 {
@@ -587,32 +627,34 @@ footer .copyright {
         width: 120px;
     }
 
-    /* Hero Adjustments */
     .hero {
         flex-direction: column;
     }
-    .left {
-        order: 2; /* Move the image section below the text section */
-        margin-bottom: 20px; /* Add margin to the bottom of the image section */
+
+    .hero .left img {
+        order: 2;
+        margin-bottom: 10px;
     }
-    .right {
-        order: 1; /* Move the text section above the image section */
-        margin-top: 20px; /* Add margin to the top of the text section */
+
+    .hero .right {
+        order: 1;
+        margin-top: 10px;
     }
-    .right h6 {
+
+    .hero .right h6 {
         font-size: 14px;
     }
 
-    .right h1 {
+    .hero .right h1 {
         font-size: 20px;
     }
 
-    .right p {
+    .hero .right p {
         font-size: 12px;
     }
 
     /* About Adjustments */
-    .about {
+    section.about {
         padding: 60px 0;
     }
 
